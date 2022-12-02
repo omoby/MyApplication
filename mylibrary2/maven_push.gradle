@@ -1,0 +1,66 @@
+////group = 'io.github.omoby'
+////version = '3.0.0'
+////apply plugin: 'signing'
+////apply plugin: 'maven-publish'
+////task sourcesJar(type: Jar) {
+////    from sourceSets.main.allJava
+////    classifier = 'sources'
+////}
+////task javadocJar(type: Jar) {
+////    from javadoc
+////    classifier = 'javadoc'
+////}
+//publishing {
+//    publications {
+//        mavenJava(MavenPublication) {
+//            groupId "io.github.omoby"
+//            artifactId "mylibrary2"
+//            version '3.0'
+//            artifactId  'mylibrary2'
+////            from components.java
+////            artifact sourcesJar
+////            artifact javadocJar
+//            pom {
+//                name = 'mylibrary2'// 替换成自己的
+//                description = 'mylibrary2 maven test'
+//                url = 'https://github.com/omoby/MyApplication'
+//                licenses {
+//                    license {
+//                        name = 'The Apache License, Version 2.0'
+//                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                    }
+//                }
+//                developers {
+//                    developer {
+//                        id = 'omoby'// 替换成自己的
+//                        name = 'omoby'// 替换成自己的
+//                        email = '3165845957@qq.com'// 替换成自己的
+//                    }
+//                }
+//                scm {
+//                    connection = 'scm:git:git://github.com/omoby/MyApplication.git'
+//                    developerConnection = 'scm:git:ssh://github.com/omoby/MyApplication.git'
+//                    url = 'https://github.com/omoby/MyApplication'
+//                }
+//            }
+//        }
+//    }
+//    repositories {
+//        maven {
+//            def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2"
+//            def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+//            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+//            credentials {
+//                username sonatypeUsername
+//                password sonatypePassword
+//            }
+//        }
+//    }
+//}
+//signing {
+//    sign publishing.publications.mavenJava
+//}
+//repositories {
+//    mavenLocal()
+//    mavenCentral()
+//}

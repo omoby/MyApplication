@@ -1,0 +1,58 @@
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId project.group
+            artifactId project.name
+            version project.version
+            pom {
+                // 库信息
+                name = 'mylibrary'// 替换成自己的
+                description = 'A tool about android Key-Value'// 替换成自己的
+                url = 'https://github.com/omoby/MyApplication'// 替换成自己的
+                // 开放许可证书，可以自己换其他的
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                // 开发者信息
+                developers {
+                    developer {
+                        id = 'omoby'// 替换成自己的
+                        name = 'omoby'// 替换成自己的
+                        email = '3165845957@qq.com'// 替换成自己的
+                    }
+                }
+                // scm
+                scm {
+                    connection = 'https://github.com/omoby/MyApplication.git'// 替换成自己的
+                    developerConnection = 'https://github.com/omoby/MyApplication.git'// 替换成自己的
+                    url = 'https://github.com/omoby/MyApplication'// 替换成自己的
+                }
+            }
+            // aar包依赖信息
+            groupId "io.github.omoby"// 替换成自己的
+            artifactId "mylibrary"// 替换成自己的
+            version "1.0"// 替换成自己的
+//            artifact "./build/outputs/aar/${project.getName()}-release.aar"
+
+            afterEvaluate {
+                from components.release
+            }
+        }
+    }
+    repositories {
+        maven {
+            url "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            credentials {
+                username = "${sonatypeUsername}"
+                password = "${sonatypePassword}"
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.release
+}

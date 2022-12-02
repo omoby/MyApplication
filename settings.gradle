@@ -1,16 +1,24 @@
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-}
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
+//pluginManagement {
+//    repositories {
+//        gradlePluginPortal()
+//        google()
+//        mavenCentral()
+//        // release 中央仓库
+//        maven { url 'https://s01.oss.sonatype.org/content/repositories/releases'}
+//        // snapshot 中央仓库
+//        maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'}
+//        // 暂存库，用于验证
+//        maven { url "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2"}
+//    }
+//}
+//dependencyResolutionManagement {
+//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+//    repositories {
+//        google()
+//        mavenCentral()
+//    }
+//}
 rootProject.name = "My Application"
 include ':app'
+include ':mylibrary'
+include ':mylibrary2'

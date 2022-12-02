@@ -1,0 +1,33 @@
+publishing {
+    repositories {
+        maven {
+            credentials {
+                username = "${sonatypeUsername}"
+                password = "${sonatypePassword}"
+            }
+            //        // release 中央仓库
+            //        maven { url 'https://s01.oss.sonatype.org/content/repositories/releases'}
+            //        // snapshot 中央仓库
+            //        maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'}
+            //        // 暂存库，用于验证
+            //        maven { url "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2"}
+            url "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2"  // maven库地址
+        }
+    }
+    publications {
+        release(MavenPublication) {
+            groupId project.group
+            artifactId project.name
+            version project.version
+            // aar包依赖信息
+            groupId "io.github.omoby"// 替换成自己的
+            artifactId "mylibrary2"// 替换成自己的
+            version "3.0"// 替换成自己的
+            artifact "./build/outputs/aar/${project.getName()}-release.aar"
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.release
+}
